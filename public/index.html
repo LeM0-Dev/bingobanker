@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bingo Maker</title>
+    <link rel="stylesheet" href="/app.css">
+  </head>
+  <body>
+    <div id="app" class="shell is-locked" aria-hidden="true">
+      <header class="topbar">
+        <a class="brand" href="/" aria-label="Create a new bingo">Bingo Maker</a>
+        <form id="open-form" class="open-form">
+          <label for="open-id">Open ID</label>
+          <div class="open-controls">
+            <input id="open-id" name="id" type="text" autocomplete="off" placeholder="abc123">
+            <button type="submit">Open</button>
+          </div>
+        </form>
+      </header>
+
+      <main class="layout">
+        <section class="editor-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow" id="mode-label">New Bingo</p>
+              <h1 id="page-title">Build a 5x5 bingo</h1>
+            </div>
+            <div class="id-block" id="share-block" hidden>
+              <span>ID</span>
+              <button id="copy-link" type="button" title="Copy share link">Copy link</button>
+            </div>
+          </div>
+
+          <form id="board-form" class="board-form">
+            <label for="title-input">Title</label>
+            <input id="title-input" type="text" maxlength="80" placeholder="Optional title">
+
+            <label for="words-input">Words</label>
+            <textarea id="words-input" spellcheck="true" placeholder="One word or phrase per line"></textarea>
+
+            <div class="form-footer">
+              <span id="word-count">0 words</span>
+              <button id="save-button" type="submit">Create bingo</button>
+            </div>
+          </form>
+        </section>
+
+        <section class="play-panel">
+          <div class="play-header">
+            <div>
+              <p class="eyebrow">Public View</p>
+              <h2 id="preview-title">Preview</h2>
+            </div>
+            <button id="generate-button" type="button">Generate</button>
+          </div>
+
+          <div id="grid" class="grid" aria-label="Bingo card"></div>
+          <p id="play-status" class="play-status">Create or open a bingo, then generate a card.</p>
+        </section>
+      </main>
+    </div>
+
+    <div id="locked-screen" class="locked-screen">
+      <div>
+        <h1>Access Required</h1>
+        <p>Reload the page and enter the access code when prompted.</p>
+      </div>
+    </div>
+
+    <dialog id="bingo-dialog" class="bingo-dialog">
+      <div class="burst">BINGO</div>
+      <p>Five in a row.</p>
+      <button id="close-dialog" type="button">Keep playing</button>
+    </dialog>
+
+    <script src="/app.js" defer></script>
+  </body>
+</html>
